@@ -1,0 +1,26 @@
+ 
+thead th{
+    background: #eee !important;
+}
+th,tr,td{
+    text-align: center;
+}
+
+h1{
+    margin: 0;
+}
+
+.navbar{
+    margin-bottom: 30px;
+}
+
+.margin-bottom{
+    margin-bottom: 30px;
+}
+
+.page-heading{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    font-weight: bolder
+}
