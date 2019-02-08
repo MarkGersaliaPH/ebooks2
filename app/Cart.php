@@ -22,6 +22,7 @@ class Cart extends Model
     }
 
     public static function count($customer_id){
-       return Cart::whereCustomerId($customer_id)->count();
+       return Cart::whereCustomerId($customer_id)
+       ->sum('quantity');
     }
 }

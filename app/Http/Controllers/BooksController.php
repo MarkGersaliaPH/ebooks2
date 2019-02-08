@@ -29,7 +29,7 @@ class BooksController extends Controller
         return Storage::put($path, $filetosave);  
     }
 
-    public function delete($id){
+    public function remove($id){
         $books = Books::find($id);
         $books->delete();
         return redirect()->back()->with(['success'=>'Data successfully removed']);

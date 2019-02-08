@@ -38,7 +38,7 @@
                                         <a href="{{route('pages.books.view',$book->id)}}">
                                             <p class=" text-white my-1">{{$book->title}}</p>
                                         </a>
-                                        <h6>{{$book->price}}</h6>
+                                        <h6  class="price">{{$book->price}}</h6>
                                     </div>
                                     <!--end title-->
             </div>

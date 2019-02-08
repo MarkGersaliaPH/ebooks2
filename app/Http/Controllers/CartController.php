@@ -14,7 +14,20 @@ class CartController extends Controller
     }
 
     public function index(){
-        $data['data'] = Cart::whereCustomerId(Auth::id())->get();
+        $collection = Cart::with('book')->whereCustomerId(Auth::id())->get();
+                
+        $unique = $collection->unique(); 
+        $data['data'] =  $unique->values('book.id')->all();  
+        $data['cart_total'] = 0;
+        $data['shipping_fee'] = 50;
+ 
         return view('frontend.cart',$data);
+    }
+    
+    public function remove($id){
+ 
+        $data = Cart::find($id);
+        $data->delete();
+        return redirect()->back()->with(['success'=>'Item removed from cart']);
     }
 }
