@@ -41,7 +41,7 @@ class CheckoutController extends Controller
 
             
                 $order = new Order; 
-                $order->item_id = $cart_data->item_id;
+                $order->book_id = $cart_data->item_id;
                 $order->customer_id = $cart_data->customer_id;
                 $order->quantity = $cart_data->quantity;
                 $order->status = 'pending';

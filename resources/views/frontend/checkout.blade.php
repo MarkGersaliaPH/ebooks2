@@ -16,18 +16,18 @@
       <div class="card-body">
         <div class="form-group">
           <label for="">Select County:</label>
-          <select id="country" required name="country" class='form-control js-example-basic-single'><option  value="{{Auth::user()->address->country }}">{{Auth::user()->address->country }}</option></select>
+          <select id="country" required name="country" class='form-control js-example-basic-single'><option  value="{{isset(Auth::user()->address->country) }}" selected>{{isset(Auth::user()->address->country) ? Auth::user()->address->country : '--- country ---' }}</option></select>
         </div>
         <div class="form-group">
           <label for="">Select Region:</label>
-          <select id="region" required name="region" class='form-control'><option value="{{Auth::user()->address->region  }}" >{{Auth::user()->address->region  }}</option></select>
+          <select id="region" required name="region" class='form-control'><option value="{{isset(Auth::user()->address->region)  }}" >{{isset(Auth::user()->address->region) ? Auth::user()->address->region : '--- region ---' }}</option></select>
         </div>
 
 
         <div class="form-group">
           <label for="">Select City:</label>
       <select id="city" required name="city"  class='form-control'> 
-      <option value="{{Auth::user()->address->city  }}" >{{Auth::user()->address->city  }}</option>
+      <option value="{{isset(Auth::user()->address->city)}} " >{{isset(Auth::user()->address->city) ? Auth::user()->address->city : '--- city ---'}}</option>
       
       </select>
       <br>

@@ -1,37 +1,25 @@
 @extends('layouts/cms')
 @section('content')
 <div class="margin-bottom">
-<div class="row">
-<div class="col-sm-9"><h1>Books</h1></div>
-<div class="col-sm-3">
-<button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Add</button></div>
-</div>
+<div class="form-group"> <h1>Orders</h1> 
 </div> 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-sm table-hover">
     <thead class="bg-light">
     <th>#</th>
         <th colspan="2">Title</th>
-        <th>Price</th>
-        <th>Author</th>
-        <th>Category</th>
-        <th>Created at</th>
-        <th>Action</th>
+        <th>Price</th> 
+        <th>Orders</th> 
     </thead>
-    <tbody> 
-        @forelse($books as $key=> $book)
+    <tbody>  
+        @forelse($orders as $key=> $order)
         
         <tr>
-        <td>{{$key + 1}}</td>
-                <td>
-                <img src="{!! $book->cover !!}" alt="" style="width:30px">
-                </td>
-                <td><a href="{{route('books.edit',$book->id)}}">{{$book->title}}</a></td>
-                <td>{{$book->price}}</td>
-                <td>{{$book->author}}</td>
-                <td>{{$book->category}}</td>
-                <td>{{$book->created_at}}</td>
-                <td><a href="{{route('books.delete',$book->id)}}" class="btn btn-danger">x</a></td>
-            </tr>
+        <td>{{$key + 1}}</td> 
+        <td>
+                <img src="{!! $order->cover !!}" alt="" style="width:30px"></td>
+                <td><a href="{{route('order.book',$order->id)}}">{{$order->title}}</a></td> 
+                <td>{{$order->price}}</td> 
+                <td>{{App\Order::countOrder($order->id)}}</td> 
         @empty
             <tr>
                 <td colspan='4'>No data found</td>

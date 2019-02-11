@@ -2,12 +2,14 @@
 @section('content')
 <div class="margin-bottom">
 <div class="row">
-<div class="col-sm-9"><h1>Books</h1></div>
-<div class="col-sm-3">
-<button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Add</button></div>
+<div class="col-sm-6"><h1>Books</h1></div>
+<div class="col-sm-6 text-right">
+<button class="btn btn-lg btn-danger " data-toggle="modal" data-target="#archivesModal"><i class="fas fa-archive"></i> Book archived</button>
+<button class="btn btn-lg btn-primary " data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Add</button>
+</div>
 </div>
 </div> 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover table-sm">
     <thead class="bg-light">
     <th>#</th>
         <th colspan="2">Title</th>
@@ -30,7 +32,7 @@
                 <td>{{$book->author}}</td>
                 <td>{{$book->category}}</td>
                 <td>{{$book->created_at}}</td>
-                <td><a href="{{route('books.delete',$book->id)}}" class="btn btn-danger">x</a></td>
+                <td><a href="{{route('books.delete',$book->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         @empty
             <tr>
@@ -50,7 +52,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header    bg-primary text-white">
         <h5 class="modal-title" id="exampleModalLabel">Add Book</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -95,6 +97,52 @@
     </div>
     
     </form>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="archivesModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header    bg-danger text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Book Archives</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-bordered table-sm table-striped">
+      <thead>
+        <th colspan="2">Book</th>
+        <th>Deleted on</th>
+        <th></th>
+      </thead>
+      <tbody> 
+      @foreach($books_archive as $archive)
+      <tr>
+      <td>
+      
+      <img src="{!! $archive->cover !!}" alt="" style="width:30px">
+      </td>
+      <td>
+        {{$archive->title}}
+      </td>
+      <td>
+        {{$archive->deleted_at}}
+      </td>
+      <td>
+        <a href="{{route('books.restore',$archive->id)}}" class="btn btn-outline btn-success ">
+        <i class="fas fa-sync-alt"></i> Restore
+        </a>
+      </td>
+      </tr>
+      @endforeach
+      </tbody>
+      </table>
+      </div> 
+    </div> 
   </div>
 </div>
 @endsection

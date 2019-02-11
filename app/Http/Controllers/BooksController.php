@@ -29,10 +29,15 @@ class BooksController extends Controller
         return Storage::put($path, $filetosave);  
     }
 
-    public function remove($id){
+    public function delete($id){
         $books = Books::find($id);
         $books->delete();
         return redirect()->back()->with(['success'=>'Data successfully removed']);
+    }
+
+    public function restore($id){
+        $books = Books::withTrashed()->where('id',$id)->restore(); 
+        return redirect()->back()->with(['success'=>'Data successfully restored']);
     }
 
     
@@ -59,5 +64,6 @@ class BooksController extends Controller
         return view('frontend.books.view',$data);
 
     }
+
 }
 

@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/app-light.css')}}"> 
@@ -19,6 +21,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
             
       .holds-the-iframe {
@@ -32,7 +36,7 @@
 </script>
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,6 +50,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>
       </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('orders')}}">Orders</a>
+      </li> 
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -54,12 +61,18 @@
   </div>
 </nav>
         <div class="container-fluid">
-        @if (session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-      @endif
-      <div class="container">
+       
+      <div class="container"> 
+@if (session('success'))
+  <script>
+  swal("Success", '{{session('success')}}', "success");
+  </script>
+@endif
+@if (session('error'))
+  <script>
+  swal("Error", '{{session('error')}}', "error");
+  </script>
+@endif
         @yield('content')
         </div>
         </div>
