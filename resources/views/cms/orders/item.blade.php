@@ -139,6 +139,14 @@
                             (total + shipping_fee )+ 
                             "</td>" +
                             "</tr>" +
+                            "<tr>" + 
+                            "<td colspan='3'>" +
+                            "Payment method:" +
+                            "</td>" +
+                            "<td>" +  
+                            response.order.payment_method+ 
+                            "</td>" +
+                            "</tr>" +
                             
                             "</tbody>" +
                         "</table>"

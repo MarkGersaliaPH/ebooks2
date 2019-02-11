@@ -20,7 +20,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $data['order'] = $order;
         $data['customer'] = User::with('address')->find($order->customer_id); 
-        $data['book'] = Books::withTrashed()->find($id);
+        $data['book'] = Books::withTrashed()->find($order->book_id);
         
         return response()->json($data);
     }
