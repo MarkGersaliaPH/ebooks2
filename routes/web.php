@@ -13,12 +13,17 @@
 use App\Books;
 Route::get('/', function () {
     $data['books'] = Books::published()->get();
-    return view('frontend.index',$data);
+    $view = view_path('frontend.index');
+    return view($view,$data);
 });
 
 Auth::routes();
 
 Route::get('/home', 'AdminController@books')->name('home');
+
+Route::get('/uikit',function(){
+    return view('layouts.uikit');
+});
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 

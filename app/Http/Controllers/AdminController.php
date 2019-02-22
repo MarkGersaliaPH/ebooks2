@@ -16,7 +16,7 @@ class AdminController extends Controller
     }
 
     public function orders(){
-        $collection = Books::with('orders')->onlyTrashed()->get();
+        $collection = Books::with('orders')->get();
         $collection = $collection->where('orders.id','!=',null);
         $data['orders'] = $collection;
         return view('cms.orders.index',$data);

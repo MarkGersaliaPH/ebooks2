@@ -27,10 +27,7 @@
         @endforelse
     </tbody>
 </table> 
-
-
-
-
+ 
 
 
 

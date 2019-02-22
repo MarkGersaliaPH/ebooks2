@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Jenssegers\Agent\Agent;
 class HomeController extends Controller
 {
     /**

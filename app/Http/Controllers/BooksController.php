@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Books;
+
+use Jenssegers\Agent\Agent;
 class BooksController extends Controller
 {
     //
     public function add(Request $request){  
-         
+        
         // $books = new Books();
         // $books->title = $request->input('title');
         // $books->category = $request->input('category');
@@ -59,7 +61,7 @@ class BooksController extends Controller
     }
 
     public function front_view($id){
-
+ 
         $data['book'] = Books::find($id);  
         return view('frontend.books.view',$data);
 
