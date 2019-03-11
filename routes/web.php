@@ -25,6 +25,8 @@ Route::get('/uikit',function(){
     return view('layouts.uikit');
 });
 
+Route::get('/item/add_to_favorites/{id}','BooksController@add_favorites')->name('favorites.add');
+
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
 Route::post('/place_order', 'CheckoutController@place_order')->name('place_order');

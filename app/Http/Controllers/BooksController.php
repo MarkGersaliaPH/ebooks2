@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Books;
-
+use App\ItemFavorite;
+use Auth;
 use Jenssegers\Agent\Agent;
 class BooksController extends Controller
 {
@@ -46,6 +47,19 @@ class BooksController extends Controller
     public function edit($id){
         $data['book'] = Books::find($id);  
         return view('cms.books.edit',$data);
+    }
+
+    public function add_favorites($id){ 
+
+        
+        ItemFavorite::firstOrCreate(
+            [
+                'item_id' => $id,
+                'customer_id' => isset(Auth::user()->id) ? Auth::user()->id : 1
+            ]
+            );
+
+        return redirect()->back()->with(['success'=>'Item added to favorites']);
     }
 
     public function update(Request $request){

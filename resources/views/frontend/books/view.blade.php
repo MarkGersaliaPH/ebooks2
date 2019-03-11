@@ -1,9 +1,16 @@
 @extends('layouts.frontend')
 @section('content')
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="/">Home</a></li> 
-  <li class="breadcrumb-item active">View {{$book->title}}</li>
-</ol>
+@include('includes.breadcrumb')
+<button onclick="testalert()"></button>
+<script>
+    function testalert(){
+    new PNotify({
+        title: 'Success!',
+        text: 'That thing that you were trying to do worked.',
+        type: 'success'
+    });
+    }
+</script>
 <div class="row">
     <div class="col-sm-3"    >
         <div class="form-group overflow zoom">
@@ -40,7 +47,15 @@
     <div class="col-sm-9">
     <h2>{{$book->title}}</h2>
     <h4>Price: {{$book->price}}</h4>
-     
+    <div class="form-group">
+    @if(!App\ItemFavorite::isAlreadyAddedToFavorite($book->id) ) 
+    <a href="{{route('favorites.add',$book->id)}}"  class="text-danger" data-toggle="tooltip" data-placement="top" title="Add on favorites"><i class="fa fa-heart"></i></a> 
+
+    @else  
+    <a   class="btn text-danger disabled" data-toggle="tooltip" data-placement="top" title="Add on favorites"><i class="fa fa-heart"></i></a> 
+    @endif
+    </div>
+ 
     <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link show active" data-toggle="tab" href="#home"><i class="fas fa-clipboard-list"></i> Description</a>
