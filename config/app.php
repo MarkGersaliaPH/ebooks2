@@ -179,6 +179,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
 
         Jenssegers\Agent\AgentServiceProvider::class,
+        odannyc\Alertify\AlertifyServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Alertify' => odannyc\Alertify\Alertify::class,
 
     ],
 

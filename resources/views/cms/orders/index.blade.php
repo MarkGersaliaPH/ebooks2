@@ -1,8 +1,9 @@
-@extends('layouts/cms')
+@extends('layouts.uikit')
 @section('content')
 <div class="margin-bottom">
 <div class="form-group"> <h1>Orders</h1> 
 </div> 
+<div class="box">
 <table class="table table-bordered table-sm table-hover">
     <thead class="bg-light">
     <th>#</th>
@@ -27,7 +28,7 @@
         @endforelse
     </tbody>
 </table> 
- 
+</div>
 
 
 

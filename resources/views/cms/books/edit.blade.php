@@ -1,15 +1,17 @@
-@extends('layouts/cms')
+@extends('layouts.uikit')
 @section('content')
  <div class="page-heading">
  <h1>View {{$book->title}}</h1>
  Posted on: {{$book->created_at->diffForHumans()}}<br>
  Last updated: {{$book->updated_at->diffForHumans()}}<br>
- 
+ <br>
 
  <div class="form-group">
-<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModal">Preview</button> 
+<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Preview</button> 
 </div>
  </div>
+ <div class="box box-body">
+
 <form action="{{route('books.update')}}" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="{{$book->id}}">
         {{csrf_field()}}
@@ -49,6 +51,7 @@
         <button type="submit" class="btn btn-primary">Save changes</button> 
     
     </form>
+</div>
 
 
  

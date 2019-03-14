@@ -1,10 +1,12 @@
-@extends('layouts/cms')
+@extends('layouts.uikit')
 @section('content')
-<div class="margin-bottom">
-<div class="form-group"> <h1><strong class="text-muted">Order for book: </strong> {{$book->title}}</h1> 
+<div class="box"> 
+    <div class="box-body">
+    <h1><strong class="text-muted">Order for book: </strong> {{$book->title}}</h1> 
+</div>
 </div> 
-
-<table class="table table-bordered table-hover">
+<div class="box box-success">
+<table class="table table-bordered table-condensed table-striped table-hover">
     <thead>
         <th>Customer</th>
         <th>Quantity</th>
@@ -27,16 +29,14 @@
     </tbody>
 </table>
 
+</div>
 
-
-
-
-
+ 
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal right fade" id="exampleModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header    bg-primary text-white">

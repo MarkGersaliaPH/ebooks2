@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('content')
 @include('includes.breadcrumb')
-<button onclick="testalert()"></button>
+{{-- <button onclick="testalert()"></button> --}}
 <script>
     function testalert(){
     new PNotify({
@@ -47,6 +47,7 @@
     <div class="col-sm-9">
     <h2>{{$book->title}}</h2>
     <h4>Price: {{$book->price}}</h4>
+   
     <div class="form-group">
     @if(!App\ItemFavorite::isAlreadyAddedToFavorite($book->id) ) 
     <a href="{{route('favorites.add',$book->id)}}"  class="text-danger" data-toggle="tooltip" data-placement="top" title="Add on favorites"><i class="fa fa-heart"></i></a> 

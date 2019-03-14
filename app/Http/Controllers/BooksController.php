@@ -10,6 +10,13 @@ use Jenssegers\Agent\Agent;
 class BooksController extends Controller
 {
     //
+
+    public function index(){
+        
+        $data['books'] = Books::published()->get();
+        return view('cms.books',$data);
+    }
+
     public function add(Request $request){  
         
         // $books = new Books();
@@ -25,6 +32,9 @@ class BooksController extends Controller
         Books::create($request->all());
         // $path = 'public/uploads/'.$filename;   
         // $this->saveFile($filename,$path);   
+        
+        
+        alertify()->success('Item added to cart')->delay(10000)->position('bottom right');
         return redirect()->back();
     }
 
@@ -59,7 +69,11 @@ class BooksController extends Controller
             ]
             );
 
-        return redirect()->back()->with(['success'=>'Item added to favorites']);
+
+            alertify()->success('i am daisychained')->delay(10000)->clickToClose()->position('bottom right');
+            
+
+        return redirect()->back();
     }
 
     public function update(Request $request){

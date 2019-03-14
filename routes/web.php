@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'AdminController@books')->name('home');
+Route::get('/home', 'AdminController@index')->name('home');
 
 Route::get('/uikit',function(){
     return view('layouts.uikit');
 });
+
 
 Route::get('/item/add_to_favorites/{id}','BooksController@add_favorites')->name('favorites.add');
 
@@ -44,9 +45,12 @@ Route::group(['prefix'=>'orders'],function(){
     Route::get('/', 'AdminController@orders')->name('orders'); 
     Route::get('/book/{id}', 'AdminController@order_book')->name('order.book'); 
     
+    Route::get('/view/{id}','OrderController@view')->name('order.view');
+    
 });
 
 Route::group(['prefix'=>'books'],function(){
+    Route::get('/', 'AdminController@books')->name('books');
     Route::post('/add', 'BooksController@add')->name('books.add');
     Route::get('/delete/{id}', 'BooksController@delete')->name('books.delete');
     Route::get('/restore/{id}', 'BooksController@restore')->name('books.restore');

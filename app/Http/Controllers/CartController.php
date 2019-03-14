@@ -10,7 +10,10 @@ class CartController extends Controller
     //
     public function add(Request $request){
         Cart::create($request->all());
-        return redirect()->back()->with(['success'=>'Item added to cart']);
+        
+        alertify()->success('Item added to cart')->delay(10000)->position('bottom right');
+            
+        return redirect()->back();
     }
 
     public function index(){

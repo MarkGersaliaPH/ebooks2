@@ -1,14 +1,10 @@
-@extends('layouts/cms')
+@extends('layouts.uikit')
 @section('content')
-<div class="margin-bottom">
-<div class="row">
-<div class="col-sm-6"><h1>Books</h1></div>
-<div class="col-sm-6 text-right">
-<button class="btn btn-lg btn-danger " data-toggle="modal" data-target="#archivesModal"><i class="fas fa-archive"></i> Book archived</button>
-<button class="btn btn-lg btn-primary " data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Add</button>
-</div>
-</div>
-</div> 
+<div class="margin-bottom">  
+<button class="btn btn-danger " data-toggle="modal" data-target="#archivesModal"><i class="fa fa-archive"></i> Book archived</button>
+<button class="btn btn-primary " data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Add</button>
+</div>  
+<div class="box">
 <table class="table table-bordered table-hover table-sm">
     <thead class="bg-light">
     <th>#</th>
@@ -32,7 +28,7 @@
                 <td>{{$book->author}}</td>
                 <td>{{$book->category}}</td>
                 <td>{{$book->created_at}}</td>
-                <td><a href="{{route('books.delete',$book->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a href="{{route('books.delete',$book->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
         @empty
             <tr>
@@ -41,7 +37,7 @@
         @endforelse
     </tbody>
 </table> 
-
+</div>
 
 
 
@@ -49,7 +45,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal right fade" id="exampleModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header    bg-primary text-white">
@@ -103,10 +99,10 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="archivesModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal right fade" id="archivesModal" tabindex="-m1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header    bg-danger text-white">
+      <div class="modal-header text-white">
         <h5 class="modal-title" id="exampleModalLabel">Book Archives</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <i class="fa fa-times"></i>

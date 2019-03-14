@@ -9,6 +9,11 @@ class AdminController extends Controller
 {
     //
 
+    public function index(){
+
+        return view('cms.dashboard');
+    }
+
     public function books(){
         $data['books'] = Books::All();
         $data['books_archive'] = Books::onlyTrashed()->get();
