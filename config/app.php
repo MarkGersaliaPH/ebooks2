@@ -181,6 +181,8 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         odannyc\Alertify\AlertifyServiceProvider::class,
 
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -233,6 +235,7 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Alertify' => odannyc\Alertify\Alertify::class,
 
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

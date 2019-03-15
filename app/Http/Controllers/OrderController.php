@@ -21,6 +21,6 @@ class OrderController extends Controller
         $data['order'] = $order;
         $data['customer'] = User::with('address')->find($order->customer_id); 
         $data['book'] = Books::withTrashed()->find($order->book_id);
-        return response()->json($data);
+        return view('');
     }
 }

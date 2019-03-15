@@ -10,7 +10,21 @@
 <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Preview</button> 
 </div>
  </div>
- <div class="box box-body">
+
+ <div class="row">
+ <div class="col-sm-6">
+        <div class="box box-success">
+                <div class="box-header">
+                    Cover image
+                </div>
+                <img src="{{ fetchImage($book->cover,Auth::user()->id) }}" class="img img-responsive">
+           
+            </div>
+ </div>
+</div>
+ 
+
+ <div class="box box-body box-success">
 
 <form action="{{route('books.update')}}" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="{{$book->id}}">

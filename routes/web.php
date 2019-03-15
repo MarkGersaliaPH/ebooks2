@@ -14,8 +14,10 @@ use App\Books;
 Route::get('/', function () {
     $data['books'] = Books::published()->get();
     $view = view_path('frontend.index');
-    return view($view,$data);
+    return view('frontend.index',$data);
 });
+
+Route::post('/save_img','AdminController@save_image');
 
 Auth::routes();
 

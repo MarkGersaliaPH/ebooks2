@@ -47,7 +47,7 @@
 	.modal.right .modal-dialog {
 		position: fixed;
 		margin: auto;
-		width: 50%;
+		width: 80%;
 		height: 100%;
 		-webkit-transform: translate3d(0%, 0, 0);
 		    -ms-transform: translate3d(0%, 0, 0);
@@ -102,7 +102,7 @@
 
 </head>
 
-<body class="sidebar-mini skin-green-light" style="height: auto; min-height: 100%;">
+<body class="sidebar-mini fix skin-green-light " style="height: auto; min-height: 100%;">
     <div class="wrapper" style="height: auto; min-height: 100%;">
       
         @include('alertify::alertify')

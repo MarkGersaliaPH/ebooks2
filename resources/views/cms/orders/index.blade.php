@@ -3,7 +3,7 @@
 <div class="margin-bottom">
 <div class="form-group"> <h1>Orders</h1> 
 </div> 
-<div class="box">
+<div class="box box-success">
 <table class="table table-bordered table-sm table-hover">
     <thead class="bg-light">
     <th>#</th>

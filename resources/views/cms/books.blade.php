@@ -4,7 +4,7 @@
 <button class="btn btn-danger " data-toggle="modal" data-target="#archivesModal"><i class="fa fa-archive"></i> Book archived</button>
 <button class="btn btn-primary " data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Add</button>
 </div>  
-<div class="box">
+<div class="box box-success">
 <table class="table table-bordered table-hover table-sm">
     <thead class="bg-light">
     <th>#</th>
@@ -19,9 +19,10 @@
         @forelse($books as $key=> $book)
         
         <tr>
-        <td>{{$key + 1}}</td>
+                <td>{{$key + 1}}</td>
                 <td>
-                <img src="{!! $book->cover !!}" alt="" style="width:30px">
+                  
+                <img src="{{ fetchBookImageSm($book->cover,Auth::user()->id) }}" alt="" style="width:30px">
                 </td>
                 <td><a href="{{route('books.edit',$book->id)}}">{{$book->title}}</a></td>
                 <td>{{$book->price}}</td>
@@ -59,7 +60,7 @@
         {{csrf_field()}}
             <div class="form-group">
                 <strong>File</strong>
-                <input type="text" name="file" class="form-control">
+                <input type="file" name="image">
             </div>
             <div class="form-group">
                 <strong>Title</strong>

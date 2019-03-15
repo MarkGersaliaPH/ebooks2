@@ -7,13 +7,17 @@ use App\Books;
 use App\ItemFavorite;
 use Auth;
 use Jenssegers\Agent\Agent;
+
+use App\Helpers\FileUpload;
 class BooksController extends Controller
 {
     //
 
     public function index(){
         
-        $data['books'] = Books::published()->get();
+
+         
+        $data['books'] = Books::orderBy('created_at',DESC)->published()->get();
         return view('cms.books',$data);
     }
 
@@ -29,11 +33,19 @@ class BooksController extends Controller
         // $filename = $file->getClientOriginalName();
        
         // $request->request->add(['file' => $filename]);
-        Books::create($request->all());
         // $path = 'public/uploads/'.$filename;   
         // $this->saveFile($filename,$path);   
         
+        $image = $request->file('image');
+        $image_name = str_slug($request->title).'.jpg';
+        $request['cover'] = $image_name;
+
         
+        FileUpload::bookImage($image,$image_name);
+
+
+        
+        Books::create($request->all());
         alertify()->success('Item added to cart')->delay(10000)->position('bottom right');
         return redirect()->back();
     }
@@ -56,6 +68,7 @@ class BooksController extends Controller
     
     public function edit($id){
         $data['book'] = Books::find($id);  
+        
         return view('cms.books.edit',$data);
     }
 

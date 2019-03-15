@@ -72,4 +72,16 @@
         <!-- ./col -->
       </div>
 
+<div class="box box-body box-success">
+  <form action="{{url('/save_img')}}" method="POST" enctype="multipart/form-data">
+    {{csrf_field()}}
+  <input type="file" name="image">
+  <button type="submit">
+    upload
+  </button>
+  </form>
+
+
+</div>
+
 @endsection
