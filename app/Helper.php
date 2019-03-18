@@ -23,7 +23,7 @@ function fetchImage($image,$user_id){
     // $img->resize(320, 240);
 
 
-    return URL::to('/').'/img/uploads/' . $user_id . '/' . $image;
+    return URL::to('/').'/img/uploads/' . $user_id . '/books/' . $image;
 }
 
 

@@ -100,10 +100,9 @@
  
   </style>
 
-</head>
-
-<body class="sidebar-mini fix skin-green-light " style="height: auto; min-height: 100%;">
-    <div class="wrapper" style="height: auto; min-height: 100%;">
+</head> 
+        <body class="skin-blue sidebar-mini skin-green-light fixed" style="height: auto; min-height: 100%;">
+            <div class="wrapper" style="height: auto; min-height: 100%;">
       
         @include('alertify::alertify')
     @include('layouts.header')
@@ -151,7 +150,7 @@
 {{-- <script src="{{asset('template/dist/js/demo.js')}}"></script> --}}
 
 <script>
-  $('textarea').wysihtml5();
+  // $('textarea').wysihtml5();
 </script>
 <script>
   $(document).ready(function () {

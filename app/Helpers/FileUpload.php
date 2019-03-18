@@ -10,6 +10,7 @@ class FileUpload
         $newImage = Image::make($image);
         $path =  public_path().'/img/uploads/'. Auth::user()->id.'/books/';
         $thumbPath =  public_path().'/img/uploads/'. Auth::user()->id.'/books/50x50-';
+        
         $input['imagename'] = $image_name;   
         $image->move($path, $input['imagename']);
  

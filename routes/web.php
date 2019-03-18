@@ -17,7 +17,24 @@ Route::get('/', function () {
     return view('frontend.index',$data);
 });
 
+Route::get('send',function(){ 
+// the message
+$msg = "First line of text\nSecond line of text";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+if(mail("markgersalia.codev@gmail.com","My subject",$msg)){
+    echo "Mail sent";
+}
+});
+
+
 Route::post('/save_img','AdminController@save_image');
+
+Route::get('bar-chart', 'ChartController@index');
+
 
 Auth::routes();
 

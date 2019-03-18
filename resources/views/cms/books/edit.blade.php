@@ -14,11 +14,14 @@
  <div class="row">
  <div class="col-sm-6">
         <div class="box box-success">
-                <div class="box-header">
+                <div class="box-header with-border">
                     Cover image
                 </div>
+                <div class="box-body">
+                <center>
                 <img src="{{ fetchImage($book->cover,Auth::user()->id) }}" class="img img-responsive">
-           
+                </center>
+            </div>
             </div>
  </div>
 </div>

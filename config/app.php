@@ -182,6 +182,7 @@ return [
         odannyc\Alertify\AlertifyServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
     ],
 
@@ -236,6 +237,8 @@ return [
         'Alertify' => odannyc\Alertify\Alertify::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+
     ],
 
 ];

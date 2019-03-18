@@ -13,7 +13,7 @@ class AdminController extends Controller
 
     public function index(){
 
-        $file = FileUpload::save();
+        // $file = FileUpload::save();
         return view('cms.dashboard');
     }
 
