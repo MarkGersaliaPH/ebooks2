@@ -16,15 +16,17 @@
         <div class="include-wrapper">
             <!--SECTION START-->
             <section class="row"> 
-            @foreach($books as $book)
+            @foreach($books as $book) 
             <div class="col-sm-2" style="margin-bottom:10px">
+                
             <div class="card border-0 rounded-0 text-white overflow zoom">
             <div class="ratio_right-cover-2 image-wrapper">
             <center>
+                
                 <a href="{{route('pages.books.view',$book->id)}}">
                     <img class="img-fluid"
-                            src="{{$book->cover}}"
-                            alt="Image description" style="height:230px;width:100%">
+                            src="{{fetchImage($book->cover,$book->user_id)}}"
+                            alt="Image description">
                 </a>
             </center>
             </div>

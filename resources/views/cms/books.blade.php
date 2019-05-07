@@ -22,7 +22,7 @@
                 <td>{{$key + 1}}</td>
                 <td>
                   
-                <img src="{{ fetchBookImageSm($book->cover,Auth::user()->id) }}" alt="" style="width:30px">
+                <img src="{{ fetchBookImageSm($book->cover,$book->user_id) }}" alt="" style="width:30px">
                 </td>
                 <td><a href="{{route('books.edit',$book->id)}}">{{$book->title}}</a></td>
                 <td>{{$book->price}}</td>

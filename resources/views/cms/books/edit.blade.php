@@ -19,7 +19,7 @@
                 </div>
                 <div class="box-body">
                 <center>
-                <img src="{{ fetchImage($book->cover,Auth::user()->id) }}" class="img img-responsive">
+                <img src="{{ fetchImage($book->cover,$book->user_id) }}" class="img img-responsive">
                 </center>
             </div>
             </div>
